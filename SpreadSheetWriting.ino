@@ -15,38 +15,32 @@
 #include <Temboo.h>
 #include "TembooAccount.h" // contains Temboo account information, as described below
 
-int calls = 1;   // Execution count, so this doesn't run forever
-int maxCalls = 10;   // Maximum number of times the Choreo should be executed
+int calls = 0;   // Execution count, so this doesn't run forever
+int maxCalls = 10;   // This will  write to the spreadsheet 10 times.
 
 
 
 
 
 void setup() {
-  Serial.begin(9600);
-  
-  // For debugging, wait until the serial console is connected
-  delay(4000);
- while(!Serial);
+
     Bridge.begin();
 }
 
 void loop() {
   if (calls <= maxCalls) {
-    Serial.println("Running AppendValues - Run #" + String(calls++));
 
-      Serial.println("Waiting...");
 
-      WriteToSpreadsheet("Hello world");
+      WriteToSpreadsheet("Hello world", "una here");
 
       
-  delay(30000); // wait 30 seconds between AppendValues calls
+  delay(30000); // wait 30 seconds between Writing to the spreadsheet calls
 
 }
     
 }
 
-void WriteToSpreadsheet(String stringToWrite)
+void WriteToSpreadsheet(String stringToWrite1, String stringToWrite2)
 {
   unsigned long now = millis();
  
@@ -73,7 +67,7 @@ void WriteToSpreadsheet(String stringToWrite)
 
 
     // convert the time and sensor values to a comma separated string
-    String rowData = "[[\"" + String(now) + "\", \"" + stringToWrite + "\"]]";
+    String rowData = "[[\"" + String(now) + "\", \"" + stringToWrite1 +"\", \"" + stringToWrite2 + "\"]]";
 
     // add the RowData input item
     AppendValuesChoreo.addInput("Values", rowData);
