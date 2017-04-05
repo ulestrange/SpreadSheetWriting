@@ -33,6 +33,8 @@ void loop() {
 
       WriteToSpreadsheet("Wednesday", "una here");
 
+      calls++; // 
+
       
   delay(30000); // wait 30 seconds between Writing to the spreadsheet calls
 
