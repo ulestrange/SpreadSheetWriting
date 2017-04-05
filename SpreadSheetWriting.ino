@@ -1,10 +1,10 @@
 /*
  * thid code was generted from Temboo and then I edited it to make it
  * easier to process.
- * However I am getting a java.net.SocketException:Connection reset error
+ * However I sometimes a java.net.SocketException:Connection reset error
+ * It seems to be a bit random boo hoo!
  * when I run it - or the original code I downloaded from Temboo.
- * I have looked at carefully and have compared it to the example programs and I can't see where
- * I am going wrong - boo hoo :(
+ * 
  */
 
 
@@ -31,7 +31,7 @@ void loop() {
   if (calls <= maxCalls) {
 
 
-      WriteToSpreadsheet("Hello world", "una here");
+      WriteToSpreadsheet("Wednesday", "una here");
 
       
   delay(30000); // wait 30 seconds between Writing to the spreadsheet calls
